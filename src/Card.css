@@ -1,0 +1,18 @@
+.card {
+  padding: 10px;
+  margin: 20px;
+  height: 280px;
+  width: 300px;
+  background-color: red;
+}
+
+.thumbnail {
+  height: 180px;
+  background-color: white;
+}
+
+.title {
+  height: 100px;
+  background-color: brown;
+}
+
