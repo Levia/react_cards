@@ -8,8 +8,12 @@
 
 #cards_container {
   display: flex;
-  align-items: center;
   justify-content: space-around;
+}
+
+#cards .sort {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .row {

@@ -38,11 +38,18 @@ class CardsContainer extends Component {
     });
   }
 
+  sortIcon() {
+    return this.state.order === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'
+  }
+
   render() {
     return (
       <div id='cards_container'>
-        <a href='#' onClick={this.sort}>Title</a>
         <div id='cards'>
+          <a href='#' onClick={this.sort} className="sort">
+            <span>Title</span>
+            <span className={this.sortIcon()}></span>
+          </a>
           {
             this.state.cards.slice(0,2).map((cards, index) => (
               <div className='row' key={index}>
