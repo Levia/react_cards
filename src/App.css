@@ -5,26 +5,3 @@
   width: 1200px;
   background-color: black;
 }
-
-#cards {
-  position: relative;
-  width: 1000px;
-  background-color: grey;
-  padding: 10px;
-  margin: 10px;
-}
-
-#cards_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-  background-color: white;
-}
-

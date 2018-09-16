@@ -11,8 +11,17 @@
   background-color: white;
 }
 
+.thumbnail img {
+  height: 100%;
+  width: 100%;
+}
+
 .title {
   height: 100px;
-  background-color: brown;
+}
+
+.title p {
+  color: white;
+  padding: 10px;
 }
 
