@@ -46,7 +46,8 @@ class CardsContainer extends Component {
           {
             this.state.cards.slice(0,2).map((cards, index) => (
               <div className='row' key={index}>
-                { cards.map(card => (
+                {
+                  cards.map(card => (
                     <Card key={card.albumId} card={card}/> )
                   )
                 }
