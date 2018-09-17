@@ -27,9 +27,11 @@
 
 .title {
   height: 100px;
+  background-color: #DDDDDD;
 }
 
 .title p {
+  margin: 0;
   color: black;
   padding: 10px;
 }
