@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LazyLoad from 'react-lazy-load';
+import LazyLoad from 'react-lazyload';
 import './Card.css';
 
 class Card extends Component {
@@ -29,7 +29,7 @@ class Card extends Component {
               this.state.loading ? (
                 <span className='fa fa-spinner fa-spin'></span>
               ) : (
-                <LazyLoad>
+                <LazyLoad placeholder={<div className='loading'><div className='fa fa-spinner fa-spin'></div></div>}>
                   <img src={this.state.thumbnailUrl}></img>
                 </LazyLoad>
               )
