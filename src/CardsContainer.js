@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.js';
 import './CardsContainer.css';
 
-const photosURL = 'https://jsonplaceholder.typicode.com/photos?_limit=60&_page=1&_sort=title&_order='
+const photosURL = 'https://jsonplaceholder.typicode.com/photos?_limit=2000&_page=1&_sort=title&_order='
 const chunkSize = 3;
 const rows = 2;
 
@@ -61,7 +61,7 @@ class CardsContainer extends Component {
     if(loading) {
       return (
         <div id='cards_container'>
-          <div id='cards'>
+          <div id='cards' className='loading'>
             <span className='fa fa-spinner fa-spin'></span>
           </div>
         </div>

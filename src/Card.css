@@ -2,13 +2,6 @@
   height: 180px;
 }
 
-/* Center spinner vertically and horizontally */
-.loading {
-  text-align: center;
-  height: 200px;
-  line-height: 200px;
-}
-
 .card {
   padding: 10px;
   margin: 20px;
