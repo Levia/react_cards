@@ -7,12 +7,10 @@
   margin: 20px;
   height: 280px;
   width: 300px;
-  background-color: red;
 }
 
 .thumbnail {
   height: 180px;
-  background-color: white;
 }
 
 .thumbnail img {
@@ -25,7 +23,7 @@
 }
 
 .title p {
-  color: white;
+  color: black;
   padding: 10px;
 }
 
