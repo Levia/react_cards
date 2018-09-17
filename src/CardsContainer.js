@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.js';
 import './CardsContainer.css';
 
-const photosURL = 'https://jsonplaceholder.typicode.com/photos?_limit=2000&_page=1&_sort=title&_order='
-const chunkSize = 3;
-const rows = 2;
+const photosURL = 'https://jsonplaceholder.typicode.com/photos?_limit=1000&_page=1&_sort=title&_order='
 
 class CardsContainer extends Component {
 
@@ -28,15 +26,15 @@ class CardsContainer extends Component {
 
   componentDidMount() {
    this.fetchPhotos().then(res => {
-     this.setState({cards: res.chunk(chunkSize), loading: false});
+     this.setState({cards: res, loading: false});
    })
   }
 
   sort() {
     const order = this.state.order === 'asc' ? 'desc' : 'asc';
     console.log(order);
-    const cards = [].concat.apply([],this.state.cards).sort(this.compare(order))
-    this.setState({cards: cards.chunk(chunkSize), order: order})
+    const cards = this.state.cards.sort(this.compare(order))
+    this.setState({cards: cards, order: order})
   }
 
   compare(order) {
@@ -76,14 +74,8 @@ class CardsContainer extends Component {
             <span className={this.sortIcon()}></span>
           </a>
           {
-            this.state.cards.map((cards, index) => (
-              <div className='row' key={index}>
-                {
-                  cards.map(card => (
-                    <Card key={card.albumId} card={card}/> )
-                  )
-                }
-              </div>
+            this.state.cards.map((card, index) => (
+              <Card key={card.id} card={card}/>
             ))
           }
         </div>
