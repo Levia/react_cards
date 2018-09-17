@@ -27,8 +27,7 @@ class CardsContainer extends Component {
 
   componentDidMount() {
    this.fetchPhotos().then(res => {
-     const cards = res.chunk(chunkSize);
-     this.setState({cards: res.chunk(chunkSize)})
+     this.setState({cards: res.chunk(chunkSize)});
    })
   }
 
@@ -54,7 +53,7 @@ class CardsContainer extends Component {
             <span className={this.sortIcon()}></span>
           </a>
           {
-            this.state.cards.slice(0,rows).map((cards, index) => (
+            this.state.cards.map((cards, index) => (
               <div className='row' key={index}>
                 {
                   cards.map(card => (
