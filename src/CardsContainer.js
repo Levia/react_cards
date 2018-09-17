@@ -4,6 +4,7 @@ import './CardsContainer.css';
 
 const photosURL = 'https://jsonplaceholder.typicode.com/photos?_limit=9&_page=1&_sort=title&_order='
 const chunkSize = 3;
+const rows = 2;
 
 class CardsContainer extends Component {
 
@@ -26,6 +27,7 @@ class CardsContainer extends Component {
 
   componentDidMount() {
    this.fetchPhotos().then(res => {
+     const cards = res.chunk(chunkSize);
      this.setState({cards: res.chunk(chunkSize)})
    })
   }
@@ -34,7 +36,8 @@ class CardsContainer extends Component {
     const order = this.state.order === 'asc' ? 'desc' : 'asc';
     console.log(order);
     this.fetchPhotos(order).then(res => {
-      this.setState({cards: res.chunk(chunkSize), order: order})
+      const cards = res.chunk(chunkSize);
+      this.setState({cards: cards, order: order})
     });
   }
 
@@ -51,7 +54,7 @@ class CardsContainer extends Component {
             <span className={this.sortIcon()}></span>
           </a>
           {
-            this.state.cards.slice(0,2).map((cards, index) => (
+            this.state.cards.slice(0,rows).map((cards, index) => (
               <div className='row' key={index}>
                 {
                   cards.map(card => (

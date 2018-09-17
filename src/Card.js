@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazy-load';
 import './Card.css';
 
 class Card extends Component {
 
   constructor(props, context) {
-    super();
+    super(props, context);
     this.state = {
       albumId: props.card.albumId,
       id: props.card.id,
@@ -18,7 +19,9 @@ class Card extends Component {
       <div className='card'>
         <div className='thumbnail'>
           <a href={this.state.url}>
-            <img src={this.state.thumbnailUrl}></img>
+            <LazyLoad>
+              <img src={this.state.thumbnailUrl}></img>
+            </LazyLoad>
           </a>
         </div>
         <div className='title'>
