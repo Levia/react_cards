@@ -12,7 +12,8 @@ class CardsContainer extends Component {
     super();
     this.state = {
       cards: [],
-      order: 'asc'
+      order: 'asc',
+      loading: true
     }
 
     this.sort = this.sort.bind(this);
@@ -27,7 +28,7 @@ class CardsContainer extends Component {
 
   componentDidMount() {
    this.fetchPhotos().then(res => {
-     this.setState({cards: res.chunk(chunkSize)});
+     this.setState({cards: res.chunk(chunkSize), loading: false});
    })
   }
 
@@ -45,6 +46,18 @@ class CardsContainer extends Component {
   }
 
   render() {
+    const { loading } = this.state;
+
+    if(loading) {
+      return (
+        <div id='cards_container'>
+          <div id='cards'>
+            <span className='fa fa-spinner fa-spin'></span>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div id='cards_container'>
         <div id='cards'>

@@ -11,17 +11,29 @@ class Card extends Component {
       id: props.card.id,
       title: props.card.title,
       url: props.card.url,
-      thumbnailUrl: props.card.thumbnailUrl
+      thumbnailUrl: props.card.thumbnailUrl,
+      loading: true
     }
   }
+
+  componentDidMount() {
+    this.setState({ loading: false });
+  }
+
   render() {
     return(
       <div className='card'>
         <div className='thumbnail'>
           <a href={this.state.url}>
-            <LazyLoad>
-              <img src={this.state.thumbnailUrl}></img>
-            </LazyLoad>
+            {
+              this.state.loading ? (
+                <span className='fa fa-spinner fa-spin'></span>
+              ) : (
+                <LazyLoad>
+                  <img src={this.state.thumbnailUrl}></img>
+                </LazyLoad>
+              )
+            }
           </a>
         </div>
         <div className='title'>
